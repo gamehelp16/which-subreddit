@@ -1,0 +1,278 @@
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	background-color: #F5F5F5;
+	margin: 0;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1500px;
+	margin: auto;
+}
+
+.content__left {
+	width: calc(40% - 100px);
+	float: left;
+	position: relative;
+	padding: 50px;
+}
+
+.content__right {
+	float: right;
+	width: calc(60% - 100px);
+	padding: 50px;
+}
+
+.post__wrapper {
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 3px 10px rgba(0,0,0,.2);
+	border-radius: 5px;
+}
+
+.post__item {
+	padding: 20px;
+	border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.post__item a {
+	color: black;
+	text-decoration: none;
+}
+
+.post__title {
+	font-size: 21px;
+	font-weight: 600;
+	margin-top: 8px;
+}
+
+.post__title .react-skeleton-load {
+	margin-bottom: 5px;
+}
+
+.post__actual-title {
+	display: block;
+	margin-bottom: 4px;
+	line-height: 30px;
+}
+
+.post__item-nsfw {
+	background-color: #D32F2F;
+	color: white;
+	border-radius: 3px;
+	padding: 0 3px;
+	margin-right: 5px;
+}
+
+.post__item-spoiler {
+	background-color: #212121;
+	color: white;
+	border-radius: 3px;
+	padding: 0 3px;
+	margin-right: 5px;
+}
+
+.header {
+	margin-top: 15px;
+}
+
+.user-stats--lives {
+	float: left;
+}
+
+.user-stats--points {
+	float: right;
+}
+
+.user-stats--points > b {
+	font-size: 23px;
+}
+
+.user-stats--points span {
+	color: #757575;
+}
+
+.user-stats--points span b {
+	font-size: 18px;
+	margin-right: 1px;
+}
+
+.heart svg {
+	fill: #F44336;
+}
+
+.heart--empty svg {
+	fill: #9E9E9E;
+}
+
+.game-over__wrapper {
+	text-align: center;
+	padding: 20px 0px;
+}
+
+.game-over__stats {
+	margin: 30px auto 20px auto;
+	font-size: 18px;
+}
+
+.game-over__stats span {
+	text-align: right;
+	width: 130px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.game-over__stats b {
+	text-align: left;
+	width: 130px;
+	display: inline-block;
+	font-size: 23px;
+}
+
+.button__new-game {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	padding: 10px 50px;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background: #1E88E5;
+	outline: 0;
+	border: 0;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: .1s linear all;
+}
+
+.button__new-game:hover {
+	background: #1565C0;
+}
+
+.subreddit-selection__wrapper {
+	margin: 20px 0 30px -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.subreddit-selection__wrapper > span, .subreddit-selection__wrapper > a {
+	margin: 10px;
+}
+
+.subreddit-selection__wrapper .react-skeleton-load {
+	box-shadow: 0 2px 5px rgba(0,0,0,.15);
+}
+
+.subreddit-selection__item {
+	font-family: 'Source Sans Pro', sans-serif;
+	display: inline-block;
+	background-color: white;
+	padding: 7px 17px;
+	border-radius: 50px;
+	cursor: pointer;
+	box-shadow: 0 2px 5px rgba(0,0,0,.15);
+	transition: .1s linear all;
+}
+
+.subreddit-selection__item--unselected:hover {
+	background-color: #1E88E5;
+	color: white;
+}
+
+.subreddit-selection__item--correct {
+	background: #43A047;
+	color: white;
+}
+
+.subreddit-selection__item--false {
+	background: #E53935;
+	color: white;
+}
+
+.subreddit-selection__item--disabled {
+	opacity: .5;
+	color: black;
+}
+
+.bottom-info__result {
+	border-radius: 4px;
+	padding: 10px 15px;
+	line-height: 25px;
+}
+
+.bottom-info__result--correct {
+	background-color: #C8E6C9;
+	border: 1px solid #2E7D32;
+	color: #2E7D32;
+}
+
+.bottom-info__result--false {
+	background-color: #FFCDD2;
+	border: 1px solid #C62828;
+	color: #C62828;
+}
+
+.button__new-level {
+	cursor: pointer;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.bottom-info__tip {
+	color: #757575;
+	margin-top: 20px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.bottom-info__tip img {
+	opacity: .5;
+	margin-right: 7px;
+}
+
+.about {
+	color: #757575;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.about a {
+	color: #757575;
+}
+
+@media (max-width: 1200px) {
+	.content__left {
+		width: calc(40% - 40px);
+		padding: 20px;
+	}
+
+	.content__right {
+		width: calc(60% - 40px);
+		padding: 20px;
+	}
+}
+
+@media (max-width: 1000px) {
+	.content__left {
+		width: calc(100% - 40px);
+		padding: 30px 20px;
+		float: none;
+	}
+
+	.content__right {
+		width: 100%;
+		padding: 0;
+		float: none;
+	}
+
+	.post__wrapper {
+		box-shadow: none;
+	}
+}
+
+@media (max-width:1000px) and (min-width:595px) {
+	.bottom-info__tip {
+		align-items: center;
+	}
+}
