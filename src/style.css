@@ -45,6 +45,7 @@ body {
 	font-size: 21px;
 	font-weight: 600;
 	margin-top: 8px;
+	word-wrap: break-word;
 }
 
 .post__title .react-skeleton-load {
