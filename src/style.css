@@ -1,4 +1,18 @@
 
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, .2);
+	border-radius: 20px;
+	transition: .1s linear all;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, .4);
+}
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	background-color: #F5F5F5;
@@ -7,33 +21,69 @@ body {
 
 .wrapper {
 	width: 100%;
-	max-width: 1500px;
+	max-width: 1400px;
 	margin: auto;
 }
 
 .content__left {
-	width: calc(40% - 100px);
 	float: left;
-	position: relative;
-	padding: 50px;
+	width: 40%;
+	box-sizing: border-box;
+	padding: 45px 20px 45px 45px;
 }
 
 .content__right {
 	float: right;
-	width: calc(60% - 100px);
-	padding: 50px;
+	width: 60%;
+	box-sizing: border-box;
+	padding: 50px 45px;
+}
+
+.advertisement {
+	margin-top: 50px;
+}
+
+#no-ads {
+	text-align: center;
+	color: #757575;
 }
 
 .post__wrapper {
 	width: 100%;
 	background-color: white;
-	box-shadow: 0 3px 10px rgba(0,0,0,.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
 	border-radius: 5px;
+}
+
+.post__wrapper--error {
+	text-align: center;
+	padding: 150px 0;
+	color: #616161;
+}
+
+.post__wrapper--error svg {
+	opacity: .3;
+	width: 150px;
+	height: 150px;
+}
+
+.post__wrapper--error h2 {
+	line-height: 10px;
+	margin-top: 20px;
+}
+
+.post__wrapper--error span {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .post__item {
 	padding: 20px;
-	border-bottom: 1px solid rgba(0,0,0,.15);
+	border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.post__item--loading {
+	padding-bottom: 14px;
 }
 
 .post__item a {
@@ -48,27 +98,32 @@ body {
 	word-wrap: break-word;
 }
 
+small .react-skeleton-load {
+	margin-bottom: 1px;
+}
+
 .post__title .react-skeleton-load {
 	margin-bottom: 5px;
 }
 
 .post__actual-title {
-	display: block;
+	display: inline-block;
 	margin-bottom: 4px;
 	line-height: 30px;
+	max-width: 100%;
 }
 
 .post__item-nsfw {
-	background-color: #D32F2F;
-	color: white;
+	color: #B71C1C;
+	border: 1px solid #B71C1C;
 	border-radius: 3px;
 	padding: 0 3px;
 	margin-right: 5px;
 }
 
 .post__item-spoiler {
-	background-color: #212121;
-	color: white;
+	color: #212121;
+	border: 1px solid #212121;
 	border-radius: 3px;
 	padding: 0 3px;
 	margin-right: 5px;
@@ -82,21 +137,12 @@ body {
 	float: left;
 }
 
-.user-stats--points {
+.user-stats--subreddits {
 	float: right;
 }
 
-.user-stats--points > b {
+.user-stats--subreddits > b {
 	font-size: 23px;
-}
-
-.user-stats--points span {
-	color: #757575;
-}
-
-.user-stats--points span b {
-	font-size: 18px;
-	margin-right: 1px;
 }
 
 .heart svg {
@@ -108,36 +154,191 @@ body {
 }
 
 .game-over__wrapper {
+	padding-bottom: 10px;
+	line-height: 23px;
+}
+
+.game-over__difficulty {
+	margin-bottom: 15px;
+}
+
+.game-over__explainer {
+	color: #757575;
+	margin-left: 10px;
+}
+
+.game-over__tip::before {
+	content: '';
+	position: absolute;
+	margin-top: -20px;
+	width: 100px;
+	border-top: 2px solid #E0E0E0;
+}
+
+.game-over__tip {
+	color: #757575;
+	margin-top: 50px;
+	display: flex;
+	align-items: flex-start;
+}
+
+.game-over__tip svg {
+	flex-basis: auto;
+	width: 75px;
+    opacity: .5;
+    margin: 3px 6px 0 0;
+}
+
+.subreddit-selection__wrapper {
+	margin: 20px 0 30px -10px;
+	padding-right: 5px;
+}
+
+.subreddit-selection__wrapper > span, .subreddit-selection__wrapper > a {
+	margin: 10px;
+}
+
+.subreddit-selection__wrapper .react-skeleton-load {
+	box-shadow: 0 2px 5px rgba(0,0,0,.15);
+	margin: 10px 0;
+}
+
+.subreddit-selection__wrapper--error {
+	display: block;
 	text-align: center;
-	padding: 20px 0px;
+	padding: 125px 0;
+	color: #616161;
 }
 
-.game-over__stats {
-	margin: 30px auto 20px auto;
-	font-size: 18px;
+.subreddit-selection__wrapper--error svg {
+	opacity: .3;
+	width: 150px;
+	height: 150px;
 }
 
-.game-over__stats span {
-	text-align: right;
-	width: 130px;
+.subreddit-selection__wrapper--error h2 {
+	line-height: 10px;
+	margin-top: 20px;
+}
+
+.subreddit-selection__wrapper--error span {
+	cursor: pointer;
+	text-decoration: underline;
+	margin: 0;
+}
+
+.subreddit-selection__item {
+	position: relative;
 	display: inline-block;
-	margin-right: 5px;
+	background-color: white;
+	padding: 7px 17px;
+	border-radius: 50px;
+	cursor: pointer;
+	box-shadow: 0 2px 5px rgba(0,0,0,.15);
+	transition: .1s linear all;
+	transition-property: background, color, opacity;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-.game-over__stats b {
-	text-align: left;
-	width: 130px;
-	display: inline-block;
-	font-size: 23px;
+.subreddit-selection__item--unselected:hover {
+	background: #1E88E5;
+	color: white;
 }
 
-.button__new-game {
+.subreddit-selection__item--unselected:active {
+	background: #1565C0;
+	color: white;
+}
+
+/* .subreddit-selection__item--noneofthem {
+	background: #F4511E;
+	color: white;
+}
+
+.subreddit-selection__item--unselected.subreddit-selection__item--noneofthem:hover {
+	background: #D84315;
+	color: white;
+}
+
+.subreddit-selection__item--unselected.subreddit-selection__item--noneofthem:active {
+	background: #BF360C;
+	color: white;
+} */
+
+.subreddit-selection__item--correct, .subreddit-selection__item--false, .subreddit-selection__item--disabled {
+	cursor: default;
+}
+
+.subreddit-selection__item--correct {
+	background: #43A047;
+	color: white;
+}
+
+/* .subreddit-selection__item--correct:not(.subreddit-selection__item--noneofthem):hover {
+	background: #2E7D32;
+}
+
+.subreddit-selection__item--correct:not(.subreddit-selection__item--noneofthem):active {
+	background: #1B5E20;
+} */
+
+.subreddit-selection__item--false {
+	background: #E53935;
+	color: white;
+}
+
+/* .subreddit-selection__item--false:not(.subreddit-selection__item--noneofthem):hover {
+	background: #C62828;
+}
+
+.subreddit-selection__item--false:not(.subreddit-selection__item--noneofthem):active {
+	background: #B71C1C;
+} */
+
+.subreddit-selection__item--disabled {
+	opacity: .4;
+}
+
+/* .subreddit-selection__item--disabled:not(.subreddit-selection__item--noneofthem):hover {
+	opacity: 1;
+}
+
+.subreddit-selection__item--disabled:not(.subreddit-selection__item--noneofthem):active {
+	background: #F5F5F5;
+} */
+
+.bottom-info__result {
+	padding: 10px 15px;
+	margin-bottom: 20px;
+	line-height: 22px;
+}
+
+.bottom-info__result--correct {
+	background-color: #C8E6C9;
+	border-left: 3px solid #2E7D32;
+	color: #2E7D32;
+}
+
+.bottom-info__result--false {
+	background-color: #FFCDD2;
+	border-left: 3px solid #C62828;
+	color: #C62828;
+}
+
+.bottom-info__result a {
+	color: inherit;
+}
+
+.button__new-level, .button__new-game {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 18px;
-	padding: 10px 50px;
+	padding: 7px 20px;
 	color: white;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: .7px;
 	background: #1E88E5;
 	outline: 0;
 	border: 0;
@@ -147,89 +348,32 @@ body {
 	transition: .1s linear all;
 }
 
-.button__new-game:hover {
+.button__new-level:hover, .button__new-game:hover {
 	background: #1565C0;
 }
 
-.subreddit-selection__wrapper {
-	margin: 20px 0 30px -10px;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.subreddit-selection__wrapper > span, .subreddit-selection__wrapper > a {
-	margin: 10px;
-}
-
-.subreddit-selection__wrapper .react-skeleton-load {
-	box-shadow: 0 2px 5px rgba(0,0,0,.15);
-}
-
-.subreddit-selection__item {
-	font-family: 'Source Sans Pro', sans-serif;
-	display: inline-block;
-	background-color: white;
-	padding: 7px 17px;
-	border-radius: 50px;
-	cursor: pointer;
-	box-shadow: 0 2px 5px rgba(0,0,0,.15);
-	transition: .1s linear all;
-}
-
-.subreddit-selection__item--unselected:hover {
-	background-color: #1E88E5;
-	color: white;
-}
-
-.subreddit-selection__item--correct {
-	background: #43A047;
-	color: white;
-}
-
-.subreddit-selection__item--false {
-	background: #E53935;
-	color: white;
-}
-
-.subreddit-selection__item--disabled {
-	opacity: .5;
-	color: black;
-}
-
-.bottom-info__result {
-	border-radius: 4px;
-	padding: 10px 15px;
-	line-height: 25px;
-}
-
-.bottom-info__result--correct {
-	background-color: #C8E6C9;
-	border: 1px solid #2E7D32;
-	color: #2E7D32;
-}
-
-.bottom-info__result--false {
-	background-color: #FFCDD2;
-	border: 1px solid #C62828;
-	color: #C62828;
+.button__new-level:active, .button__new-game:active {
+	background: #0D47A1;
 }
 
 .button__new-level {
-	cursor: pointer;
-	text-decoration: underline;
-	white-space: nowrap;
+	float: right;
+	margin-left: 15px;
 }
 
 .bottom-info__tip {
 	color: #757575;
 	margin-top: 20px;
+	height: 37px;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 }
 
-.bottom-info__tip img {
-	opacity: .5;
-	margin-right: 7px;
+.bottom-info__tip svg {
+	flex-basis: auto;
+	width: 23px;
+    opacity: .5;
+    margin: 0 5px 0 0;
 }
 
 .about {
@@ -244,19 +388,19 @@ body {
 
 @media (max-width: 1200px) {
 	.content__left {
-		width: calc(40% - 40px);
+		width: 40%;
 		padding: 20px;
 	}
 
 	.content__right {
-		width: calc(60% - 40px);
+		width: 60%;
 		padding: 20px;
 	}
 }
 
 @media (max-width: 1000px) {
 	.content__left {
-		width: calc(100% - 40px);
+		width: 100%;
 		padding: 30px 20px;
 		float: none;
 	}
@@ -269,11 +413,5 @@ body {
 
 	.post__wrapper {
 		box-shadow: none;
-	}
-}
-
-@media (max-width:1000px) and (min-width:595px) {
-	.bottom-info__tip {
-		align-items: center;
 	}
 }

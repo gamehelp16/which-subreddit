@@ -1,12 +1,13 @@
 {
   "name": "which-subreddit",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://gamehelp16.github.io/which-subreddit",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.1.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-flip-move": "^3.0.3",
     "react-scripts": "1.1.4",
     "react-skeleton-loader": "^1.0.2"
   },
